@@ -17,9 +17,10 @@ module.exports = {
   },
   location: async (args, req) => {
     try {
-      
+      const location = await Location.findById(args.id);
+      return location;
     } catch (err) {
-      
+      throw err;
     }
   }
 //   createEvent: async (args, req) => {

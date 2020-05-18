@@ -76,8 +76,10 @@ type User {
   _id: ID!
   email: String!
   name: String!
-  escapeRate: Int
+  escapedRooms: Int
   completedRooms: [Room]
+  favoriteRoom: Room
+  favoriteLocation: Locations
 }
 
 type Room {
