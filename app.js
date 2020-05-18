@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 
 const graphQlSchema = require('./graphql/schema/index');
 const graphQlResolvers = require('./graphql/resolvers/index');
-const isAuth = require('./middleware/is-auth');
+// const isAuth = require('./middleware/is-auth');
 
 const app = express();
 
@@ -21,7 +21,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(isAuth);
+// app.use(isAuth);
 
 app.use(
   '/graphql',
@@ -33,13 +33,9 @@ app.use(
 );
 
 mongoose
-  .connect(
-    `mongodb+srv://${process.env.MONGO_USER}:${
-      process.env.MONGO_PASSWORD
-    }@cluster0-ntrwp.mongodb.net/${process.env.MONGO_DB}?retryWrites=true`
-  )
+  .connect(process.env.MONGODB_URI || "mongodb://heroku_3gtc8qbb:heroku_3gtc8qbb@ds129050.mlab.com:29050/heroku_3gtc8qbb", { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
-    app.listen(8000);
+    app.listen(process.env.PORT || 8080);
   })
   .catch(err => {
     console.log(err);
