@@ -79,7 +79,7 @@ type User {
   escapedRooms: Int
   completedRooms: [Room]
   favoriteRoom: Room
-  favoriteLocation: Locations
+  favoriteLocation: Location
 }
 
 type Room {
