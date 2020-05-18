@@ -68,7 +68,7 @@ type Location {
     _id: ID!
     name: String!
     address: String
-    zip: Number
+    zip: Int
     rooms: [Room]
 }
 
@@ -76,7 +76,7 @@ type User {
   _id: ID!
   email: String!
   name: String!
-  escapeRate: Number
+  escapeRate: Int
   completedRooms: [Room]
 }
 
@@ -85,11 +85,11 @@ type Room {
   name: String!
   location: Location
   completedBy: [User]
-  escapeTime: Number
+  escapeTime: Int
   description: String
-  fastestTime: Number
-  escapeAttempts: Number
-  escapeSuccesses: Number
+  fastestTime: Int
+  escapeAttempts: Int
+  escapeSuccesses: Int
 }
 
 input UserInput {
