@@ -34,8 +34,10 @@ app.use(
 
 mongoose
   .connect(process.env.MONGODB_URI || "mongodb://heroku_3gtc8qbb:heroku_3gtc8qbb@ds129050.mlab.com:29050/heroku_3gtc8qbb", { useNewUrlParser: true, useUnifiedTopology: true })
+  // .connect('mongodb://localhost/test', {useNewUrlParser: true, useUnifiedTopology: true})
   .then(() => {
     app.listen(process.env.PORT || 8080);
+    // app.listen(3000);
   })
   .catch(err => {
     console.log(err);
