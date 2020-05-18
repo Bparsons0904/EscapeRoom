@@ -102,6 +102,7 @@ input UserInput {
 type RootQuery {
     users: [User!]!
     locations: [Location!]!
+    location(_id: ID): Location 
     rooms: [Room!]!
 }
 
