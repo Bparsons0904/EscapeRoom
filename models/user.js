@@ -11,12 +11,15 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
-  // createdEvents: [
-  //   {
-  //     type: Schema.Types.ObjectId,
-  //     ref: 'Event'
-  //   }
-  // ]
+  escapeRate: {
+    type: Number
+  },
+  completedRooms: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Room'
+    }
+  ]
 });
 
 module.exports = mongoose.model('User', userSchema);

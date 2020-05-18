@@ -15,6 +15,13 @@ module.exports = {
       throw err;
     }
   },
+  location: async (args, req) => {
+    try {
+      
+    } catch (err) {
+      
+    }
+  }
 //   createEvent: async (args, req) => {
 //     if (!req.isAuth) {
 //       throw new Error('Unauthenticated!');

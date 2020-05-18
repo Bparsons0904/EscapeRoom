@@ -67,12 +67,29 @@ module.exports = buildSchema(`
 type Location {
     _id: ID!
     name: String!
+    address: String
+    zip: Number
+    rooms: [Room]
 }
 
 type User {
   _id: ID!
   email: String!
-  name: String
+  name: String!
+  escapeRate: Number
+  completedRooms: [Room]
+}
+
+type Room {
+  _id: ID!
+  name: String!
+  location: Location
+  completedBy: [User]
+  escapeTime: Number
+  description: String
+  fastestTime: Number
+  escapeAttempts: Number
+  escapeSuccesses: Number
 }
 
 input UserInput {
@@ -83,6 +100,7 @@ input UserInput {
 type RootQuery {
     users: [User!]!
     locations: [Location!]!
+    rooms: [Room!]!
 }
 
 type RootMutation {
